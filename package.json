@@ -1,0 +1,16 @@
+{
+  "name": "image-compressor",
+  "version": "0.0.1",
+  "description": "Image compressor nodejs script",
+  "main": "./src/main.mjs",
+  "scripts": {
+    "start": "node ./src/main.mjs"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "inquirer": "^9.2.10",
+    "tinify": "^1.7.1"
+  },
+  "devDependencies": {}
+}
