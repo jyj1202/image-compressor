@@ -1,8 +1,9 @@
 {
   "name": "image-compressor",
   "version": "0.0.1",
-  "description": "Image compressor nodejs script",
-  "main": "./src/main.mjs",
+  "description": "Image compressor base on nodejs",
+  "keywords": ["nodejs", "image compressor"],
+    "main": "./src/main.mjs",
   "scripts": {
     "start": "node ./src/main.mjs"
   },

@@ -50,7 +50,7 @@ export default class ImagesCompresser {
 
   isImageFile(filePath) {
     const ext = path.extname(filePath).toLowerCase();
-    return ['.png', '.jpg', '.jpeg', '.gif'].includes(ext);
+    return ['.png', '.jpg', '.jpeg'].includes(ext);
   }
 
   async compressImage(filePath) {
