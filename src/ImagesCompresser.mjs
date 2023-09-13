@@ -1,11 +1,20 @@
+//@ts-check
+
 import inquirer from 'inquirer';
 import * as fs from 'node:fs/promises';
 import path from 'path';
 import tinify from 'tinify';
 
 export default class ImagesCompresser {
+  /**
+   * @private
+   */
   inputDir = '';
 
+  /**
+   * constructor
+   * @param {string} tinifyKey 
+   */
   constructor(tinifyKey) {
     tinify.key = tinifyKey;
   }
@@ -20,6 +29,9 @@ export default class ImagesCompresser {
     }
   }
 
+  /**
+   * @description 获取用户输入路径
+   */
   async getDirectoryFromUser() {
     const questions = [
       {
@@ -33,6 +45,10 @@ export default class ImagesCompresser {
     this.inputDir = path.resolve(answers.directory);
   }
 
+  /**
+   * 压缩当前目录下所有图片
+   * @param {string} directory 
+   */
   async compressImages(directory) {
     const files = await fs.readdir(directory);
 
@@ -48,11 +64,20 @@ export default class ImagesCompresser {
     }
   }
 
+  /**
+   * @description 判断是否是图片
+   * @param {string} filePath
+   * @returns {boolean}
+   */
   isImageFile(filePath) {
     const ext = path.extname(filePath).toLowerCase();
     return ['.png', '.jpg', '.jpeg'].includes(ext);
   }
 
+  /**
+   * @description 压缩指定路径图片
+   * @param {string} filePath 
+   */
   async compressImage(filePath) {
     try {
       const sourceData = await fs.readFile(filePath);
